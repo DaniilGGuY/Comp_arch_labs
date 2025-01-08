@@ -1,0 +1,387 @@
+\documentclass{article}
+
+\usepackage[english, russian]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[14pt]{extsizes}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{tocloft}
+\usepackage{indentfirst} 
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{svg}
+
+\captionsetup[figure]{name={Рисунок},labelsep=endash}
+\captionsetup[table]{singlelinecheck=false, labelsep=endash}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\geometry{pdftex, left = 3cm, right = 1cm	, top = 2cm, bottom = 2cm}
+\onehalfspacing
+
+\setlength{\parindent}{1,25cm}
+\lstdefinestyle{lang}{
+	basicstyle=\footnotesize\ttfamily,
+	frame=single,
+	tabsize=4,	
+	breaklines=true
+}
+
+\lstset{
+	literate=
+	{а}{{\selectfont\char224}}1
+	{б}{{\selectfont\char225}}1
+	{в}{{\selectfont\char226}}1
+	{г}{{\selectfont\char227}}1
+	{д}{{\selectfont\char228}}1
+	{е}{{\selectfont\char229}}1
+	{ё}{{\"e}}1
+	{ж}{{\selectfont\char230}}1
+	{з}{{\selectfont\char231}}1
+	{и}{{\selectfont\char232}}1
+	{й}{{\selectfont\char233}}1
+	{к}{{\selectfont\char234}}1
+	{л}{{\selectfont\char235}}1
+	{м}{{\selectfont\char236}}1
+	{н}{{\selectfont\char237}}1
+	{о}{{\selectfont\char238}}1
+	{п}{{\selectfont\char239}}1
+	{р}{{\selectfont\char240}}1
+	{с}{{\selectfont\char241}}1
+	{т}{{\selectfont\char242}}1
+	{у}{{\selectfont\char243}}1
+	{ф}{{\selectfont\char244}}1
+	{х}{{\selectfont\char245}}1
+	{ц}{{\selectfont\char246}}1
+	{ч}{{\selectfont\char247}}1
+	{ш}{{\selectfont\char248}}1
+	{щ}{{\selectfont\char249}}1
+	{ъ}{{\selectfont\char250}}1
+	{ы}{{\selectfont\char251}}1
+	{ь}{{\selectfont\char252}}1
+	{э}{{\selectfont\char253}}1
+	{ю}{{\selectfont\char254}}1
+	{я}{{\selectfont\char255}}1
+	{А}{{\selectfont\char192}}1
+	{Б}{{\selectfont\char193}}1
+	{В}{{\selectfont\char194}}1
+	{Г}{{\selectfont\char195}}1
+	{Д}{{\selectfont\char196}}1
+	{Е}{{\selectfont\char197}}1
+	{Ё}{{\"E}}1
+	{Ж}{{\selectfont\char198}}1
+	{З}{{\selectfont\char199}}1
+	{И}{{\selectfont\char200}}1
+	{Й}{{\selectfont\char201}}1
+	{К}{{\selectfont\char202}}1
+	{Л}{{\selectfont\char203}}1
+	{М}{{\selectfont\char204}}1
+	{Н}{{\selectfont\char205}}1
+	{О}{{\selectfont\char206}}1
+	{П}{{\selectfont\char207}}1
+	{Р}{{\selectfont\char208}}1
+	{С}{{\selectfont\char209}}1
+	{Т}{{\selectfont\char210}}1
+	{У}{{\selectfont\char211}}1
+	{Ф}{{\selectfont\char212}}1
+	{Х}{{\selectfont\char213}}1
+	{Ц}{{\selectfont\char214}}1
+	{Ч}{{\selectfont\char215}}1
+	{Ш}{{\selectfont\char216}}1
+	{Щ}{{\selectfont\char217}}1
+	{Ъ}{{\selectfont\char218}}1
+	{Ы}{{\selectfont\char219}}1
+	{Ь}{{\selectfont\char220}}1
+	{Э}{{\selectfont\char221}}1
+	{Ю}{{\selectfont\char222}}1
+	{Я}{{\selectfont\char223}}1
+}
+
+\DeclareCaptionLabelSeparator{line}{\ --\ }
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43,0.35,0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{
+	singlelinecheck=false,
+	labelsep=line
+}
+
+\begin{document}
+\begin{titlepage}
+	\newgeometry{pdftex, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+	\fontsize{12pt}{12pt}\selectfont
+	\noindent\begin{tabular}{|c|c|}	\hline
+	\noindent\begin{minipage}{0.15\textwidth}
+		\includegraphics[width=\linewidth]{tools/logo.png}
+	\end{minipage} &
+	\noindent\begin{minipage}{0.85\textwidth}\centering
+		\textbf{\newline Министерство науки и высшего образования Российской Федерации}\\
+		\textbf{Федеральное государственное бюджетное образовательное учреждение высшего образования}\\
+		\textbf{«Московский государственный технический университет имени Н.Э.~Баумана}\\
+		\textbf{(национальный исследовательский университет)»}\\
+		\textbf{(МГТУ им. Н.Э.~Баумана)}
+	\end{minipage} \\
+	\hline	\end{tabular}\newline\newline\newline
+	\noindent ФАКУЛЬТЕТ \underline{«Информатика и системы управления»} \newline\newline
+	\noindent КАФЕДРА \underline{«Программное обеспечение ЭВМ и информационные технологии»}\newline\newline\newline\newline\newline\newline
+
+	\noindent\begin{minipage}{1.0\textwidth}\centering
+		\Large\textbf{       Практикум №1}
+		\end{minipage}
+		
+	\noindent\begin{minipage}{1.0\textwidth}\centering
+		\textbf{\newline}	
+		\end{minipage}
+
+	\noindent\begin{minipage}{1.0\textwidth}\centering
+		\Large\textbf{по дисциплине «Архитектура ЭВМ»}	
+		\end{minipage}
+		
+	\noindent\begin{minipage}{1.0\textwidth}\centering
+		\Large\textbf{\newline\newline\newline\newline}	
+		\end{minipage}
+	
+	\noindent\textbf{Тема} \underline{Разработка и отладка программ в вычислительном комплексе Тераграф}
+\newline\newline
+	\textbf{Студент} \underline{Тузов Даниил Александрович}\newline\newline
+	\textbf{Группа} \underline{ИУ7-52Б}\newline\newline
+	\textbf{Преподаватель} \underline{Калитвенцев Максим Павлович}
+	
+	\begin{center}
+		\vfill
+		Москва, \the\year ~г.
+	\end{center}
+	\restoregeometry
+	\clearpage
+\end{titlepage}
+
+\section{Введение}
+
+Практикум посвящен освоению принципов работы вычислительного комплекса Тераграф и получению практических навыков 
+решения задач обработки множеств на основе гетерогенной вычислительной структуры. В ходе практикума необходимо 
+ознакомиться с типовой структурой двух взаимодействующих программ: хост-подсистемы и программного ядра $sw_kernel$. 
+Для выполнения практикума предоставляется доступ к облачной платформе $devlab.bmstu.ru$ с установленными 
+ускорительными картами микропроцессора Леонард Эйлер и настроенными средствами сборки проектов.
+
+\clearpage\section{Индивидуальное задание}
+
+Сформировать в хост-подсистеме и передать в SPE две коллекции. Описание коллекций:
+
+\begin{itemize}
+	\item[---] $students: student_id, name, enrollment_status$.
+	\item[---] $financial_aid: aid_id, student_id, amount, year$.
+\end{itemize}
+
+Все текстовые поля коллекций предварительно индексируются и сохраняются в $std::map$ в хост-подсистеме (например, путем 
+автоинкремента индекса). В SPE передаются только индексы.
+
+Определить, получал ли студент Артур Назаров (передается в запросе из хост-подсистемы) финансовую помощь в год его 
+зачисления?
+
+Эквивалентный запрос на языке $AQL$:
+
+\begin{lstlisting}[style=lang, caption=Запрос на языке AQL]
+FOR student IN students
+  FILTER student.name == Артур Назаров
+  LET enrollmentYear = DATE_YEAR(student.enrollment_status)
+  LET aid = FIRST(
+    FOR fa IN financial_aid
+      FILTER fa.student_id == student.student_id AND fa.year == enrollmentYear
+      RETURN fa
+  )
+  RETURN {
+    name: student.name,
+    received_aid_in_enrollment_year: aid != null
+  }
+\end{lstlisting}
+
+\textbf{Объяснение:}
+
+\begin{enumerate}
+	\item Находим студента: \\FILTER student.name == Артур Назаров.
+	\item Получаем год зачисления: \\ LET enrollmentYear = DATE\_YEAR(student.enrollment\_status).
+	\item Ищем запись о финансовой помощи в год зачисления: 
+	\begin{itemize}
+		\item[---] FILTER fa.student\_id == student.student\_id \\AND fa.year == enrollmentYear.
+		\item[---] Используем FIRST для получения первой записи.
+	\end{itemize}
+	\item Возвращаем результат:
+	\begin{itemize}
+		\item[---] Если aid != null, значит студент получал помощь.
+		\item[---] RETURN \{ name: …, received\_aid\_in\_enrollment\_year: … \}.
+	\end{itemize}
+\end{enumerate}
+
+
+\clearpage\section{Описание структур}
+
+В листинге~\ref{structs} приведены описания структур: структуры студента и финансовых выплат. Поля структуры соответствуют
+заданию. 
+
+\begin{lstlisting}[style=lang, label=structs, caption=Описание  структур]
+struct students {
+    using vertex_t = uint32_t;
+    int struct_number;
+    constexpr students(int struct_number) : struct_number(struct_number) {}
+    STRUCT(key) {
+        uint32_t student_id;
+    };
+    STRUCT(val) {
+        uint32_t name_idx;
+        uint32_t enrollment_status;
+    };
+    #ifdef __riscv64__
+        DEFINE_DEFAULT_KEYVAL(key, val)
+    #endif
+};
+
+struct financial_aids {
+    using vertex_t = uint32_t;
+    int struct_number;
+    constexpr financial_aids(int struct_number) : struct_number(struct_number) {}
+    STRUCT(key) {
+        uint32_t aid_id;
+    };
+    STRUCT(val) {
+        uint16_t student_id; 
+        uint16_t amount;
+        uint16_t year; 
+    };
+    #ifdef __riscv64__
+        DEFINE_DEFAULT_KEYVAL(key, val)
+    #endif
+};
+\end{lstlisting}
+
+\clearpage\section{Описание хост-подсистемы}
+
+В листинге~\ref{host} приведено описание хост-подсистемы, которая инициализирует $map$ студентов, занимает ядро и 
+инициализирует поток сообщений программному ядру с информацией о студентах и финансовых выплатах. Затем формируется
+запрос от хост-подсистемы к ядру и по результатам этого запроса печатается ответ.
+
+\begin{lstlisting}[style=lang, label=host, caption=Описание хост-подсистемы]
+int main(int argc, char** argv) {
+	ofstream log("logger.log"); //поток вывода сообщений
+	unsigned long long offs=0ull;
+	gpc *gpc64_inst; //указатель на класс gpc
+	if (argc<2) {
+		log<<"Использование: host_main <путь к файлу rawbinary>"<<endl;
+		return -1;
+	}
+	gpc64_inst = new gpc();
+	log<<"Открывается доступ к "<<gpc64_inst->gpc_dev_path<<endl;
+	if (gpc64_inst->load_swk(argv[1])==0) {
+		log<<"Программное ядро загружено из файла "<<argv[1]<<endl;
+	}
+	else {
+		log<<"Ошибка загрузки sw_kernel файла << argv[1]"<<endl;
+		return -1;
+	}
+    log << "Начало инициализации..." << endl;
+	gpc64_inst->start(__event__(update_students));
+    log << "Таблица студентов" << endl;
+    for (const auto& [name, index] : name_index) {
+        uint32_t e_status = (1 - index % 2);
+        log << "Добавлен студент: id=" << index << " name=" << name << " status=" << e_status << endl;
+        gpc64_inst->mq_send(students::key{.student_id = index});
+        gpc64_inst->mq_send(students::val{.name_idx = index - 1, .enrollment_status = e_status});
+    }
+    gpc64_inst->mq_send(-1ull);
+    log << "Инициализирована таблица студентов" << endl;
+    gpc64_inst->start(__event__(update_financial_aid));
+    log << "Таблица финансовой помощи" << endl;
+    for (uint32_t aid_id = 0; aid_id < TEST_AIDS_COUNT; ++aid_id) {
+        uint16_t stud_id = aid_id % 10;
+        uint16_t amount = (aid_id % 3) + 1;
+        uint16_t year = 2024;
+        log << "Добавлена информация о финансовой помощи: id=" << aid_id << " stud_id=" << stud_id << " amount=" << amount << " year=" << year << endl;
+        gpc64_inst->mq_send(financial_aids::key{.aid_id = aid_id});
+        gpc64_inst->mq_send(financial_aids::val{
+            .student_id = stud_id,
+            .amount = amount,
+            .year = year
+        });
+    }
+    gpc64_inst->mq_send(-1ull);
+    log << "Инициализирована таблица финансовой помощи" << endl;   
+    std::string student_name = "Артур Назаров";
+    log << "Начало поиска финансовой помощи Артура Назарова" << endl;
+    gpc64_inst->start(__event__(select_financials));
+    uint32_t name_idx = name_index[student_name];
+    gpc64_inst->mq_send(name_idx);
+    uint16_t result = gpc64_inst->mq_receive();
+    if (result != -1ull) log << "Студент: " << student_name << " получал финансовую помощь в " << result << " году" << endl;
+    else log << "Студент: " << student_name << " не получал финансовую помощь" << endl;
+    
+    delete gpc64_inst;
+    return 0;
+}
+\end{lstlisting}
+
+\clearpage\section{Описание кода обработчика, функционирующего в ядре}
+
+В листинге~\ref{kernel} приведено описание обработчика событий от хост-подсистемы. Обработчик функционирует на базе
+ядра $sw\_kernel$. При получении событий на обновление информации о студентах и выплатах, вызываются функции 
+$update\_students$ и $update\_financial\_aid$, которые обновляют информацию о студентах и выплатах. Функция 
+$select\_financials$ выполняет поиск льгот для переданного в качетсве параметра идентификатора студента. В случае успеха 
+возвращается год соответствующей выплаты.
+
+\begin{lstlisting}[style=lang, label=kernel, caption=Описание кода обработчика]
+int main(void) {
+    lnh_init();
+    for (;;) {
+        //Wait for event
+        event_source = wait_event();
+        switch(event_source) {
+            case __event__(update_students) : update_students(); break; 
+            case __event__(update_financial_aid) : update_financial_aid(); break;
+            case __event__(select_financials) : select_financials(); break;
+        }
+        set_gpc_state(READY);
+    }
+}
+
+void update_students() {
+    while (1) {
+        students::key key = students::key::from_int(mq_receive());
+        if (key == -1ull) break;
+        students::val val = students::val::from_int(mq_receive());
+        STUDENTS.ins_async(key, val);
+    }
+}
+
+void update_financial_aid() {
+    while (1) {
+        financial_aids::key key = financial_aids::key::from_int(mq_receive());
+        if (key == -1ull) break;
+        financial_aids::val val = financial_aids::val::from_int(mq_receive());
+        FINANCIAL_AIDS.ins_async(key, val);
+    }
+}
+
+void select_financials() {
+    while (1) {
+        uint32_t target_name_idx = mq_receive();
+        auto student_iter = STUDENTS.nsm(students::key{.student_id = target_name_idx});
+        auto aid_iter = FINANCIAL_AIDS.nsm(financial_aids::key{.aid_id = 0});
+        while (aid_iter) {
+            if (aid_iter.value().student_id == student_iter.key())
+                mq_send(aid_iter.value().year);
+            aid_iter = FINANCIAL_AIDS.nsm(aid_iter.key());
+        }    
+        mq_send(-1ull);
+    }
+}
+\end{lstlisting}
+
+\clearpage\section{Вывод}
+
+В ходе работы была разработана хост-подсистема, а так же обработчик программного ядра, выполняющие индивидуальное 
+задание. Программа была протестирована --- все тесты пройдены успешно.
+
+\end{document}
